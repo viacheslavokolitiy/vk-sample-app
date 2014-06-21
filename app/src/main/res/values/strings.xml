@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">vk-photo-viewer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_app_id">4422067</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="text_auth">Sign in</string>
+    <string name="text_sign_out">Sign out</string>
+    <string name="bundle_json_response">json_response</string>
+    <string name="text_album_fragment_tag">album_list</string>
+
+</resources>
