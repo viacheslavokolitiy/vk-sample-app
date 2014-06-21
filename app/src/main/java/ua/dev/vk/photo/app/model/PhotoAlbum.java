@@ -1,7 +1,10 @@
 package ua.dev.vk.photo.app.model;
 
-public class PhotoAlbum {
+import java.io.Serializable;
+
+public class PhotoAlbum implements Serializable{
     private String title;
+    private int mAlbumId;
     private String mThumbnailUrl;
 
     public String getTitle() {
@@ -27,6 +30,7 @@ public class PhotoAlbum {
 
         PhotoAlbum that = (PhotoAlbum) o;
 
+        if (mAlbumId != that.mAlbumId) return false;
         if (mThumbnailUrl != null ? !mThumbnailUrl.equals(that.mThumbnailUrl) : that.mThumbnailUrl != null)
             return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
@@ -37,7 +41,16 @@ public class PhotoAlbum {
     @Override
     public int hashCode() {
         int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + mAlbumId;
         result = 31 * result + (mThumbnailUrl != null ? mThumbnailUrl.hashCode() : 0);
         return result;
+    }
+
+    public int getAlbumId() {
+        return mAlbumId;
+    }
+
+    public void setAlbumId(int mAlbumId) {
+        this.mAlbumId = mAlbumId;
     }
 }

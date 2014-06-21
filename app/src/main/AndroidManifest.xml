@@ -25,6 +25,8 @@
         </activity>
         <activity android:name="com.vk.sdk.VKOpenAuthActivity"/>
         <activity android:name=".AlbumActivity" android:label="Albums"/>
+        <activity android:name=".AlbumPhotoActivity" android:label="Album photos"/>
+        <activity android:name=".FullscreenPhotoActivity"/>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.vk.sdk.VKAccessToken;
@@ -11,8 +12,9 @@ import com.vk.sdk.VKCaptchaDialog;
 import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.VKSdkListener;
-import com.vk.sdk.VKUIHelper;
+import com.vk.sdk.VKUIHelper;//
 import com.vk.sdk.api.VKError;
+import com.vk.sdk.util.VKUtil;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -42,6 +44,9 @@ public class LoginActivity extends ActionBarActivity {
             startMainActivity();
             return;
         }
+
+        String[] fingerprint = VKUtil.getCertificateFingerprint(this, this.getPackageName());
+        Log.d("Fingerprint", fingerprint[0]);
     }
 
     private void startMainActivity() {

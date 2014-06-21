@@ -18,6 +18,15 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            storeFile file("${rootProject.projectDir}/keystore.jks")
+            storePassword "123456"
+            keyAlias "vk sdk test"
+            keyPassword "123456"
+        }
+    }
+
     lintOptions {
         abortOnError false
     }

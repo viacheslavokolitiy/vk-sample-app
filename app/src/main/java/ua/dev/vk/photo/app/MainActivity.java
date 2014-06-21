@@ -35,16 +35,15 @@ public class MainActivity extends ActionBarActivity {
                 Intent intent = new Intent(MainActivity.this, AlbumActivity.class);
                 intent.putParcelableArrayListExtra("parsed_data", (ArrayList<? extends android.os.Parcelable>) albums);
                 startActivity(intent);
+                finish();
             }
 
             @Override
             public void attemptFailed(VKRequest request, int attemptNumber, int totalAttempts) {
-                Log.e("fail", "attempt_failed");
             }
 
             @Override
             public void onError(VKError error) {
-                Log.e("error", error.errorReason);
             }
         });
     }

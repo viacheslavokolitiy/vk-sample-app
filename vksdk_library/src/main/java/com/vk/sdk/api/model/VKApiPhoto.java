@@ -25,7 +25,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.vk.sdk.api.model.ParseUtils.parseBoolean;
 import static com.vk.sdk.api.model.ParseUtils.parseInt;
@@ -190,6 +194,29 @@ public class VKApiPhoto extends VKAttachments.VKApiAttachment implements Parcela
             src.sort();
         }
         return this;
+    }
+
+    public List<VKApiPhoto> parseResponse(JSONObject from){
+        List<VKApiPhoto> photos = new ArrayList<VKApiPhoto>();
+        final JSONObject object = from.optJSONObject("response");
+        final JSONArray items = object.optJSONArray("items");
+        for(int position = 0; position < items.length(); position++){
+            try {
+                VKApiPhoto vkApiPhoto = new VKApiPhoto();
+                JSONObject obj = items.getJSONObject(position);
+                photo_604 = obj.optString("photo_604");
+                photo_2560 = obj.optString("photo_2560");
+                if(!TextUtils.isEmpty(photo_604) || !TextUtils.isEmpty(photo_2560)){
+                    vkApiPhoto.photo_604 = photo_604;
+                    vkApiPhoto.photo_2560 = photo_2560;
+                    photos.add(vkApiPhoto);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return photos;
     }
 
     /**

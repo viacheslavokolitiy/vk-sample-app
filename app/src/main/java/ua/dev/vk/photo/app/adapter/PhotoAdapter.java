@@ -1,66 +1,62 @@
 package ua.dev.vk.photo.app.adapter;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.dev.vk.photo.app.R;
-import ua.dev.vk.photo.app.model.PhotoAlbum;
+import ua.dev.vk.photo.app.model.Photo;
 
 /**
  * Created by 1 on 21.06.2014.
  */
-public class AlbumAdapter extends ArrayAdapter<PhotoAlbum> {
-    private final Context context;
-    private ArrayList<PhotoAlbum> albums;
+public class PhotoAdapter extends ArrayAdapter<Photo> {
+    private Context context;
     private LayoutInflater layoutInflater;
-    private ProgressDialog dialog;
+    private ArrayList<Photo> photos;
 
-    public AlbumAdapter(Context context, int resource, ArrayList<PhotoAlbum> objects) {
+    public PhotoAdapter(Context context, int resource, ArrayList<Photo> objects) {
         super(context, resource, objects);
         this.context = context;
-        this.albums = objects;
+        this.photos = objects;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.layout_album_items, null);
+            convertView = layoutInflater.inflate(R.layout.layout_photo_items, null);
         }
-        final ViewHolder holder = new ViewHolder(convertView);
 
-        final PhotoAlbum album = getItem(position);
-        holder.albumTitle.setText(album.getTitle());
-        Picasso.with(context).load(album.getThumbnailUrl())
+        final ViewHolder viewHolder = new ViewHolder(convertView);
+        Photo photo = getItem(position);
+        Picasso.with(context).load(photo.getUrl())
                 .placeholder(R.drawable.ic_launcher)
                 .error(R.drawable.ic_launcher)
                 .fit()
-                .into(holder.icon, new Callback() {
+                .into(viewHolder.photo, new Callback() {
                     @Override
                     public void onSuccess() {
-                        holder.icon.setVisibility(View.VISIBLE);
-                        holder.bar.setVisibility(View.GONE);
+                        viewHolder.photo.setVisibility(View.VISIBLE);
+                        viewHolder.bar.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onError() {
-                        holder.bar.setVisibility(View.VISIBLE);
-                        holder.icon.setVisibility(View.GONE);
+                        viewHolder.photo.setVisibility(View.GONE);
+                        viewHolder.bar.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -68,12 +64,10 @@ public class AlbumAdapter extends ArrayAdapter<PhotoAlbum> {
     }
 
     class ViewHolder {
-        @InjectView(R.id.images)
-        ImageView icon;
-        @InjectView(R.id.text_album_name)
-        TextView albumTitle;
-        @InjectView(R.id.pb_loading)
+        @InjectView(R.id.pb_photo_loading)
         ProgressBar bar;
+        @InjectView(R.id.image_album_photo)
+        ImageView photo;
 
         ViewHolder(View view){
             ButterKnife.inject(this, view);
