@@ -10,5 +10,7 @@
     <string name="text_sign_out">Sign out</string>
     <string name="bundle_json_response">json_response</string>
     <string name="text_album_fragment_tag">album_list</string>
+    <string name="text_label_albums">Albums</string>
+    <string name="text_label_album_photos">Album photos</string>
 
 </resources>

@@ -2,8 +2,8 @@ package ua.dev.vk.photo.app;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.Button;
 
@@ -12,7 +12,7 @@ import com.vk.sdk.VKCaptchaDialog;
 import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.VKSdkListener;
-import com.vk.sdk.VKUIHelper;//
+import com.vk.sdk.VKUIHelper;
 import com.vk.sdk.api.VKError;
 import com.vk.sdk.util.VKUtil;
 
@@ -40,7 +40,7 @@ public class LoginActivity extends ActionBarActivity {
         ButterKnife.inject(this);
         VKUIHelper.onCreate(this);
         VKSdk.initialize(mVkSdkListener, getString(R.string.text_app_id));
-        if(VKSdk.wakeUpSession()){
+        if (VKSdk.wakeUpSession()) {
             startMainActivity();
             return;
         }
@@ -100,7 +100,7 @@ public class LoginActivity extends ActionBarActivity {
     };
 
     @OnClick(R.id.btn_login)
-    public void signIn(){
+    public void signIn() {
         VKSdk.authorize(scopes, true, false);
     }
 }

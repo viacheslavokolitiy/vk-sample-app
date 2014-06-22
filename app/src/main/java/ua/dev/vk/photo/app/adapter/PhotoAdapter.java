@@ -12,16 +12,12 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.dev.vk.photo.app.R;
 import ua.dev.vk.photo.app.model.Photo;
 
-/**
- * Created by 1 on 21.06.2014.
- */
 public class PhotoAdapter extends ArrayAdapter<Photo> {
     private Context context;
     private LayoutInflater layoutInflater;

@@ -3,7 +3,6 @@ package ua.dev.vk.photo.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 
 import com.vk.sdk.api.VKApi;
 import com.vk.sdk.api.VKApiConst;
@@ -11,7 +10,6 @@ import com.vk.sdk.api.VKError;
 import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
-import com.vk.sdk.api.model.VKApiPhoto;
 import com.vk.sdk.api.model.VKApiPhotoAlbum;
 
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        vkRequest = new VKRequest("photos.getAlbums", VKParameters.from(VKApiConst.NEED_COVERS,1), VKRequest.HttpMethod.GET);
+        vkRequest = new VKRequest("photos.getAlbums", VKParameters.from(VKApiConst.NEED_COVERS, 1), VKRequest.HttpMethod.GET);
         vkRequest.executeWithListener(new VKRequest.VKRequestListener() {
             @Override
             public void onComplete(VKResponse response) {

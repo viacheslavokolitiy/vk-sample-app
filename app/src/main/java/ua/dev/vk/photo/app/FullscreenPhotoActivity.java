@@ -1,7 +1,5 @@
 package ua.dev.vk.photo.app;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -11,7 +9,6 @@ import android.widget.ProgressBar;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.vk.sdk.api.model.VKApiPhoto;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -31,8 +28,6 @@ public class FullscreenPhotoActivity extends FragmentActivity {
         ButterKnife.inject(this);
         Photo photo = (Photo) getIntent().getSerializableExtra("selected_photo");
         Picasso.with(this).load(photo.getUrl())
-                /*.placeholder(R.drawable.ic_launcher)
-                .error(R.drawable.ic_launcher)*/
                 .fit()
                 .centerCrop()
                 .into(fullScreen, new Callback() {

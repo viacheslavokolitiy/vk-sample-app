@@ -2,9 +2,6 @@ package ua.dev.vk.photo.app.model;
 
 import java.io.Serializable;
 
-/**
- * Created by 1 on 21.06.2014.
- */
 public class Photo implements Serializable{
     private String url;
     private String largePhotoUrl;

@@ -1,8 +1,6 @@
 package ua.dev.vk.photo.app.adapter;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +19,10 @@ import butterknife.InjectView;
 import ua.dev.vk.photo.app.R;
 import ua.dev.vk.photo.app.model.PhotoAlbum;
 
-/**
- * Created by 1 on 21.06.2014.
- */
 public class AlbumAdapter extends ArrayAdapter<PhotoAlbum> {
     private final Context context;
     private ArrayList<PhotoAlbum> albums;
     private LayoutInflater layoutInflater;
-    private ProgressDialog dialog;
 
     public AlbumAdapter(Context context, int resource, ArrayList<PhotoAlbum> objects) {
         super(context, resource, objects);

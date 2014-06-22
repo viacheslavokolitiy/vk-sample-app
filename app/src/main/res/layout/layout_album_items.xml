@@ -6,8 +6,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/images"
-        android:src="@android:drawable/alert_dark_frame"/>
+        android:id="@+id/images"/>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +16,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="22sp"
-        android:text="Album"
         android:layout_toRightOf="@+id/images"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"

@@ -19,13 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".MainActivity">
 
         </activity>
         <activity android:name="com.vk.sdk.VKOpenAuthActivity"/>
-        <activity android:name=".AlbumActivity" android:label="Albums"/>
-        <activity android:name=".AlbumPhotoActivity" android:label="Album photos"/>
+        <activity android:name=".AlbumActivity" android:label="@string/text_label_albums"/>
+        <activity android:name=".AlbumPhotoActivity" android:label="@string/text_label_album_photos"/>
         <activity android:name=".FullscreenPhotoActivity"/>
     </application>
 

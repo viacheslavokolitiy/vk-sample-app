@@ -3,9 +3,6 @@ package ua.dev.vk.photo.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
@@ -19,9 +16,6 @@ import com.vk.sdk.api.model.VKApiPhoto;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.greenrobot.event.EventBus;
-import ua.dev.vk.photo.app.model.PhotoAlbum;
-import ua.dev.vk.photo.app.ui.AlbumListFragment;
 import ua.dev.vk.photo.app.ui.photos.PhotoListFragment;
 
 
@@ -76,7 +70,7 @@ public class AlbumPhotoActivity extends ActionBarActivity {
             report = bundle;
         }
 
-        public Bundle getReport(){
+        public Bundle getReport() {
             return report;
         }
     }

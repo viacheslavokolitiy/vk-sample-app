@@ -1,9 +1,7 @@
 package ua.dev.vk.photo.app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 
 import com.vk.sdk.api.model.VKApiPhotoAlbum;
 
@@ -11,9 +9,6 @@ import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 
-/**
- * Created by 1 on 21.06.2014.
- */
 public class AlbumActivity extends ActionBarActivity {
 
     @Override
